@@ -22,7 +22,7 @@
   `POST /rest/posts` returns 201 with an empty body; the URN is in the
   `x-restli-id` response header. Reading the body gets you nothing and looks
   like a silent failure."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (def default-base-url "https://api.linkedin.com")
 
@@ -60,8 +60,8 @@
   the name up case-insensitively rather than trusting one spelling."
   [resp name*]
   (let [hs (or (:response-headers resp) (:headers resp))
-        target (str/lower-case name*)]
-    (some (fn [[k v]] (when (= target (str/lower-case (name k))) v)) hs)))
+        target (str/lower name*)]
+    (some (fn [[k v]] (when (= target (str/lower (name k))) v)) hs)))
 
 (defn create-post!
   "POST /rest/posts. Returns the post URN, read from the `x-restli-id` header.
