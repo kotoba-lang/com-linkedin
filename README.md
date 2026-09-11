@@ -43,8 +43,8 @@ each chunk's ETag echoed back **in order**.
 ## Test
 
 ```bash
-nbb run_tests.cljk     # primary
-clojure -M:test        # JVM, secondary
+kbb --backend sci run_tests.cljk     # primary
+kbb -M:test        # JVM, secondary
 ```
 
 8 tests / 15 assertions, green on both.
