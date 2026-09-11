@@ -43,7 +43,7 @@ each chunk's ETag echoed back **in order**.
 ## Test
 
 ```bash
-nbb run_tests.cljs     # primary
+nbb run_tests.cljk     # primary
 clojure -M:test        # JVM, secondary
 ```
 
